@@ -1,0 +1,64 @@
+.personalizacao {
+  background-color: red
+}
+
+.pokeballButton {
+  padding: 0px;
+}
+.pokeballButton img {
+  padding-top: 3px;
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+
+
+
+.pokebola {
+  background-color: red;
+  height: 30px;
+
+}
+
+
+.searchbar{
+  background-color: white;
+  height: 40px;
+  width: 600px;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-right:80px;
+}
+
+.inputArea {
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.inputArea::placeholder {
+  padding-left: 10px;
+  font-size: 20px;
+  color: red;
+}

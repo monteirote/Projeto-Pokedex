@@ -1,0 +1,16 @@
+<mat-card class="full-card">
+
+  <div class="div-imagem">
+    <img src="{{ shownPokemon.url }}" class="pokemon-sprite">
+  </div>
+
+  <div class="name">
+    {{ shownPokemon.name.replace(shownPokemon.name.charAt(0), shownPokemon.name.charAt(0).toUpperCase()) }}
+  </div>
+
+  <div class="number">
+    <p>#{{ shownPokemon.pkdxNumber}}</p>
+  </div>
+
+
+</mat-card>

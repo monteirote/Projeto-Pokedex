@@ -1,12 +1,10 @@
 package com.vinicius.pokedex.services;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.vinicius.pokedex.model.ListObject;

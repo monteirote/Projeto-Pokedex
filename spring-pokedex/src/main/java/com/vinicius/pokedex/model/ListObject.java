@@ -8,6 +8,8 @@ public class ListObject {
 
     private int pkdxNumber;
 
+    private PokemonTypes[] types;
+
     public String getName() {
         return name;
     }
@@ -26,6 +28,14 @@ public class ListObject {
 
     public int getPkdxNumber() {
         return pkdxNumber;
+    }
+
+    public PokemonTypes[] getTypes() {
+        return types;
+    }
+
+    public void setTypes(PokemonTypes[] types) {
+        this.types = types;
     }
     
 }

@@ -13,6 +13,8 @@ public class PokemonModel {
 
     private double weight;
 
+    private PokemonTypes[] types;
+
     public void setUrlSprite(String urlSprite) {
         this.urlSprite = urlSprite;
     }
@@ -33,7 +35,13 @@ public class PokemonModel {
         return weight;
     }
 
+    public PokemonTypes[] getTypes() {
+        return types;
+    }
 
+    public void setTypes(PokemonTypes[] types) {
+        this.types = types;
+    }
 
 
 

@@ -37,21 +37,30 @@ public class PokedexController {
         return pkm;
     }
 
-    @GetMapping
-    public ListObject[] getAllPokemons() {
+    @GetMapping("/page/{page}")
+    public ListObject[] getAllPokemons(@PathVariable int page) {
         List<ListObject> listaExibida = new ArrayList<>();
         if (!this.pokedexService.getAllPokemons().isEmpty()) {
             pokedexService.getAllPokemons().forEach(data -> {
+                
                 data.setPkdxNumber(pdxNumber);
                 data.setUrl(templateUrl + pdxNumber + ".png");
-                pdxNumber = pdxNumber + 1;
+
+                if (data.getPkdxNumber() <= page * 100) {
+                    PokemonModel pkm = getPokemonDetailsById(pdxNumber);
+                    data.setTypes(pkm.getTypes());
+                }
+                
                 listaExibida.add(data);
+                pdxNumber = pdxNumber + 1;
             });
             pdxNumber = 1;
         }
         
         return listaExibida.toArray(new ListObject[0]);
     }
+
+
 
 }
 

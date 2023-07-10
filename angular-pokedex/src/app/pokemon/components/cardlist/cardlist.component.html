@@ -1,9 +1,10 @@
-<ul>
-  <li *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-    {{ pokemon.name }}
-    <img src="{{ pokemon.url }}" alt="pokemon">
-    {{ pokemon.pkdxNumber }}
-  </li>
-</ul>
-
+<div class="center">
+  <ol>
+    <li *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+      <app-cardpokemon [shownPokemon]="pokemon"></app-cardpokemon>
+    </li>
+  </ol>
+</div>
 <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+

@@ -9,4 +9,7 @@ export class PokeToolbarComponent {
 
   iconUrl: string = "https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg";
 
+  onClick() {
+    console.log('funcionando!')
+  }
 }

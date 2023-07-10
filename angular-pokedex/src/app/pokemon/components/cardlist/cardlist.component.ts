@@ -13,9 +13,11 @@ export class CardListComponent implements OnInit{
   pokemonExibido!: Pokemon;
   pokemons!: pokemonList.PokemonList[];
   currentPage = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 100;
 
-  constructor(private pokemonsService: PokemonsService) {}
+  constructor(private pokemonsService: PokemonsService) {
+    this.loadPokemons();
+  }
 
   ngOnInit(): void {
     this.loadPokemons();
@@ -32,6 +34,8 @@ export class CardListComponent implements OnInit{
       }
     );
   }
+
+
 
 
 

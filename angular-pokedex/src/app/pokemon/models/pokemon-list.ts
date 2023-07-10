@@ -1,4 +1,4 @@
-import { Pokemon } from "./pokemon";
+import { PokemonTypes } from "./pokemon-types";
 
 export interface PokemonList {
 
@@ -7,5 +7,7 @@ export interface PokemonList {
   pkdxNumber: number;
 
   url: string;
+
+  types: PokemonTypes[];
 
 }

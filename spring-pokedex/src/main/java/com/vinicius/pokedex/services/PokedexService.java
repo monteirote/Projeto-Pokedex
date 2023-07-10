@@ -26,9 +26,9 @@ public class PokedexService {
     return restTemplate.getForObject(apiUrl + number, PokemonModel.class);
   }
 
-  public List<ListObject> getAllPokemons() {
+  public List<ListObject> getAllPokemons(int page) {
     RestTemplate restTemplate = new RestTemplate();
-    ResponseEntity<PokemonList> response = restTemplate.getForEntity(apiUrl + "?limit=1010", PokemonList.class);
+    ResponseEntity<PokemonList> response = restTemplate.getForEntity(apiUrl + "?offset=" + ((page - 1) * 100) + "?limit=" + ((page * 100) - 1), PokemonList.class);
     if (response.getStatusCode().is2xxSuccessful()) {
       PokemonList pokemonList = response.getBody();
       if (pokemonList != null) {

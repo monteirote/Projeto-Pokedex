@@ -40,23 +40,16 @@ public class PokedexController {
     @GetMapping("/page/{page}")
     public ListObject[] getAllPokemons(@PathVariable int page) {
         List<ListObject> listaExibida = new ArrayList<>();
-        if (!this.pokedexService.getAllPokemons().isEmpty()) {
-            pokedexService.getAllPokemons().forEach(data -> {
+            pokedexService.getAllPokemons(page).forEach(data -> {
                 
                 data.setPkdxNumber(pdxNumber);
                 data.setUrl(templateUrl + pdxNumber + ".png");
-
-                if (data.getPkdxNumber() <= page * 100) {
-                    PokemonModel pkm = getPokemonDetailsById(pdxNumber);
-                    data.setTypes(pkm.getTypes());
-                }
-                
+                data.setTypes(getPokemonDetailsById(pdxNumber).getTypes());
                 listaExibida.add(data);
-                pdxNumber = pdxNumber + 1;
+                pdxNumber++;
             });
-            pdxNumber = 1;
-        }
         
+        pdxNumber = 1;
         return listaExibida.toArray(new ListObject[0]);
     }
 

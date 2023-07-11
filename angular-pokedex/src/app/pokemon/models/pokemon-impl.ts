@@ -1,4 +1,5 @@
 import { Pokemon } from "./pokemon";
+import { PokemonTypes } from "./pokemon-types";
 
 export class PokemonImpl implements Pokemon {
 
@@ -6,7 +7,8 @@ export class PokemonImpl implements Pokemon {
     public name: string,
     public pokedexNumber: number,
     public urlSprite: string,
-    public weight: number
+    public weight: number,
+    public types: PokemonTypes[],
   ) {}
 
 }

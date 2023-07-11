@@ -13,7 +13,9 @@ export class CardListComponent implements OnInit{
   pokemonExibido!: Pokemon;
   pokemons!: pokemonList.PokemonList[];
   currentPage = 1;
-  itemsPerPage = 100;
+  itemsPerPage = 20;
+
+
 
   constructor(private pokemonsService: PokemonsService) {
     this.loadPokemons();
@@ -24,7 +26,7 @@ export class CardListComponent implements OnInit{
   }
 
   loadPokemons(): void {
-    this.pokemonsService.listAll().subscribe(
+    this.pokemonsService.listByPage().subscribe(
       (pokemonLists: pokemonList.PokemonList[]) => {
         this.pokemons = pokemonLists;
         // console.log(this.pokemons)

@@ -4,5 +4,7 @@ export interface PokemonTypes {
 
   slot: number;
 
-  types: Type[];
+  type: Type[];
+
 }
+

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vinicius.pokedex.model.ListObject;
+import com.vinicius.pokedex.model.OnlyTypesPokemon;
 import com.vinicius.pokedex.model.PokemonModel;
 import com.vinicius.pokedex.services.PokedexService;
 
@@ -40,17 +41,22 @@ public class PokedexController {
     @GetMapping("/page/{page}")
     public ListObject[] getAllPokemons(@PathVariable int page) {
         List<ListObject> listaExibida = new ArrayList<>();
+        pdxNumber += 20 * (page - 1);
             pokedexService.getAllPokemons(page).forEach(data -> {
-                
                 data.setPkdxNumber(pdxNumber);
                 data.setUrl(templateUrl + pdxNumber + ".png");
-                data.setTypes(getPokemonDetailsById(pdxNumber).getTypes());
+                data.setTypes(getTypesById(pdxNumber).getTypes());
                 listaExibida.add(data);
                 pdxNumber++;
             });
         
         pdxNumber = 1;
         return listaExibida.toArray(new ListObject[0]);
+    }
+
+    @GetMapping("/types/{id}")
+    public OnlyTypesPokemon getTypesById(@PathVariable int id) {
+        return pokedexService.getTypesByName(id);
     }
 
 

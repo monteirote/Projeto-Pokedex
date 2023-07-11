@@ -10,4 +10,7 @@ export class CardPokemonComponent {
 
   @Input() shownPokemon!: PokemonList;
 
+
+
+
 }

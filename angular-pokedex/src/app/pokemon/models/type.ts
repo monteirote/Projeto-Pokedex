@@ -1,7 +1,7 @@
 export interface Type {
 
-  name: String;
+  name: string;
 
-  url: String;
+  url: string;
 
 }

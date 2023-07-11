@@ -2,7 +2,6 @@ import { Pokemon } from './../models/pokemon';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { delay, first, tap } from 'rxjs/operators';
 import { PokemonList } from '../models/pokemon-list';
 
 
@@ -26,9 +25,8 @@ export class PokemonsService {
     return this.httpClient.get<Pokemon>(`${this.API}/${id}`);
   }
 
-
-  listAll() {
-    return this.httpClient.get<PokemonList[]>(this.API);
+  listByPage() {
+    return this.httpClient.get<PokemonList[]>(`${this.API}/page/1`);
   }
 
 }

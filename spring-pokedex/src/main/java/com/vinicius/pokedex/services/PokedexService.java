@@ -2,8 +2,6 @@ package com.vinicius.pokedex.services;
 
 import java.util.Collections;
 import java.util.List;
-import org.springframework.http.HttpEntity;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

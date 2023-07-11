@@ -1,7 +1,6 @@
 import { Pokemon } from './../models/pokemon';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { PokemonList } from '../models/pokemon-list';
 
 
@@ -12,16 +11,20 @@ export class PokemonsService {
 
   private readonly API = 'api/pokemon'
 
-  allPokemonArray: Pokemon[] = [];
-
   constructor(private httpClient: HttpClient) {}
 
 
-  loadByName(name: string): Observable<Pokemon> {
-    return this.httpClient.get<Pokemon>(`${this.API}/${name}`);
+  loadByName(name: string) {
+    return this.httpClient.get<Pokemon>(`${this.API}/${name}`).subscribe((pokemon: Pokemon) => {
+      const myPokemon: Pokemon = {
+        name: pokemon.name,
+        pokedexNumber: pokemon.pokedexNumber,
+
+      }
+    });
   }
 
-  loadById(id: number): Observable<Pokemon> {
+  loadById(id: number) {
     return this.httpClient.get<Pokemon>(`${this.API}/${id}`);
   }
 

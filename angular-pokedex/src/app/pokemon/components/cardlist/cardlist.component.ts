@@ -29,7 +29,7 @@ export class CardListComponent implements OnInit{
     this.pokemonsService.listByPage().subscribe(
       (pokemonLists: pokemonList.PokemonList[]) => {
         this.pokemons = pokemonLists;
-        // console.log(this.pokemons)
+        console.log(this.pokemons)
       },
       (error: any) => {
         console.error('Error retrieving Pokémon list:', error);

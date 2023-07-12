@@ -15,21 +15,15 @@ export class PokemonsService {
 
 
   loadByName(name: string) {
-    return this.httpClient.get<Pokemon>(`${this.API}/${name}`).subscribe((pokemon: Pokemon) => {
-      const myPokemon: Pokemon = {
-        name: pokemon.name,
-        pokedexNumber: pokemon.pokedexNumber,
-
-      }
-    });
+    return this.httpClient.get<Pokemon>(`${this.API}/${name}`);
   }
 
   loadById(id: number) {
     return this.httpClient.get<Pokemon>(`${this.API}/${id}`);
   }
 
-  listByPage() {
-    return this.httpClient.get<PokemonList[]>(`${this.API}/page/1`);
+  listByPage(page: number) {
+    return this.httpClient.get<PokemonList[]>(`${this.API}/page/${page}`);
   }
 
 }

@@ -4,6 +4,7 @@
     <img src="{{ shownPokemon.url }}" class="pokemon-sprite">
   </div>
 
+
   <div class="name">
     {{ shownPokemon.name.replace(shownPokemon.name.charAt(0), shownPokemon.name.charAt(0).toUpperCase()) }}
   </div>
@@ -11,5 +12,11 @@
   <div class="number">
     <p>#{{ shownPokemon.pkdxNumber}}</p>
   </div>
+
+  <div class="type-container">
+    <div [ngClass]="getDivColorClass(shownPokemon.tipos.at(0))" class="default-container"> {{ shownPokemon.tipos.at(0) }} </div>
+    <div [ngClass]="getDivColorClass(shownPokemon.tipos.at(1))" *ngIf="shownPokemon.tipos.length > 1" class="default-container"> {{ shownPokemon.tipos.at(1) }} </div>
+  </div>
+
 
 </mat-card>

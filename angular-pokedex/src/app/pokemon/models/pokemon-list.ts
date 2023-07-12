@@ -10,4 +10,6 @@ export interface PokemonList {
 
   types: PokemonTypes[];
 
+  tipos: string[];
+
 }

@@ -1,10 +1,37 @@
-<div class="center">
-  <ol>
-    <li *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-      <app-cardpokemon [shownPokemon]="pokemon"></app-cardpokemon>
-    </li>
-  </ol>
+<div class="center-all">
+
+  <div class="background" *ngIf="!isLoading">
+    <button mat-icon-button (click)="nextPage()">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button mat-icon-button (click)="previousPage()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="center">
+      <ol>
+        <li *ngFor="let pokemon of pokemons">
+          <app-cardpokemon [shownPokemon]="pokemon"></app-cardpokemon>
+        </li>
+      </ol>
+    </div>
+    <button (click)="previousPage()">
+      <<
+    </button>
+    <button (click)="nextPage()">
+      >>
+    </button>
+  </div>
+
 </div>
-<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 
 
+
+
+
+<div *ngIf="isLoading" class="background-loading">
+  <div class="center-on-page">
+    <div class="pokeball">
+      <div class="pokeball__button"></div>
+    </div>
+  </div>
+</div>

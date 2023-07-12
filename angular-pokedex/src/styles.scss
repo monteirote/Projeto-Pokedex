@@ -1,4 +1,187 @@
-/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.div-color-bug {
+  background-color: rgb(159, 172, 59);
+}
+
+.div-color-dark {
+  background-color: rgb(74, 57, 47);
+}
+
+.div-color-dragon {
+  background-color: rgb(111, 94, 217);
+}
+
+.div-color-electric {
+  background-color: rgb(217, 170, 62);
+}
+
+.div-color-fairy {
+  background-color: rgb(227, 172, 236);
+}
+
+.div-color-fighting {
+  background-color: rgb(125, 63, 42);
+}
+
+.div-color-fire {
+  background-color: rgb(250, 55, 16);
+}
+
+.div-color-flying {
+  background-color: rgb(157, 168, 237);
+}
+
+.div-color-ghost {
+  background-color: rgb(95, 96, 163);
+}
+
+.div-color-grass {
+  background-color: rgb(127, 180, 75);
+}
+
+.div-color-ground {
+  background-color: rgb(206, 177, 99);
+}
+
+.div-color-ice {
+  background-color: rgb(135, 208, 242);
+}
+
+.div-color-normal {
+  background-color: rgb(191, 186, 177);
+}
+
+.div-color-poison {
+  background-color: rgb(135, 76, 144);
+}
+
+.div-color-psychic {
+  background-color: rgb(217, 84, 128);
+}
+
+.div-color-rock {
+  background-color: rgb(153, 136, 72);
+}
+
+.div-color-steel {
+  background-color: rgb(150, 148, 163);
+}
+
+.div-color-water {
+  background-color: rgb(78, 142, 234);
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
+.center-on-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.pokeball {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 10px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 10px 0 10px #ccc;
+  animation: fall .25s ease-in-out, shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    background: red;
+    width: 100%;
+    height: 50%;
+  }
+
+  &::after {
+    top: calc(50% - 10px);
+    width: 100%;
+    height: 20px;
+    background: #000;
+  }
+
+  &__button {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    background: #7f8c8d;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 10px black;
+    animation: blink .5s alternate 7;
+  }
+}
+
+@keyframes blink {
+  from {
+    background: #eee;
+  }
+
+  to {
+    background: #e74c3c;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+
+  20% {
+    transform: translate(-10px, 0) rotate(-20deg);
+  }
+
+  30% {
+    transform: translate(10px, 0) rotate(20deg);
+  }
+
+  50% {
+    transform: translate(-10px, 0) rotate(-10deg);
+  }
+
+  60% {
+    transform: translate(10px, 0) rotate(10deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes fall {
+  0% {
+    top: -200px;
+  }
+
+  60% {
+    top: 0;
+  }
+
+  80% {
+    top: -20px;
+  }
+
+  100% {
+    top: 0;
+  }
+}

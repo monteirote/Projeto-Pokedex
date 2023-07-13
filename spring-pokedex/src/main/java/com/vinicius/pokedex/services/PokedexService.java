@@ -29,8 +29,9 @@ public class PokedexService {
   public List<ListObject> getAllPokemons(int page) {
     RestTemplate restTemplate = new RestTemplate();
     int offset = (page - 1) * 20;
-    int limit = (page * 20) - 1;
-    ResponseEntity<PokemonList> response = restTemplate.getForEntity(apiUrl + "?offset=" + offset + "?limit=" + limit, PokemonList.class);
+    int limit = 20;
+    if (page == 51) limit = 10;
+    ResponseEntity<PokemonList> response = restTemplate.getForEntity(apiUrl + "?offset=" + offset + "&limit=" + limit, PokemonList.class);
     if (response.getStatusCode().is2xxSuccessful()) {
       PokemonList pokemonList = response.getBody();
       if (pokemonList != null) {

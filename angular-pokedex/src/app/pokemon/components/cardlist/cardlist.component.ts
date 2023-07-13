@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonsService } from '../../services/pokemons.service';
 import * as pokemonList from '../../models/pokemon-list';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cardlist',
@@ -9,11 +10,11 @@ import * as pokemonList from '../../models/pokemon-list';
 })
 export class CardListComponent {
 
+  currentPage: number = 1;
   pokemons!: pokemonList.PokemonList[];
-  currentPage = 1;
   isLoading = true;
 
-  constructor(private pokemonsService: PokemonsService) {
+  constructor(private pokemonsService: PokemonsService, private snackBar: MatSnackBar) {
     this.loadPokemons();
   }
 
@@ -42,14 +43,53 @@ export class CardListComponent {
 
   nextPage(): void {
     if(this.isLoading) return;
+    if(this.currentPage == 51) {
+      this.openSnackbar("Essa já é a última página!");
+      return;
+    }
     this.currentPage++;
     this.loadPokemons();
   }
 
   previousPage(): void {
     if(this.isLoading) return;
+    if(this.currentPage == 1) {
+      this.openSnackbar("Essa já é a primeira página!");
+      return;
+    }
     this.currentPage--;
     this.loadPokemons();
+  }
+
+  firstPage() {
+    if(this.isLoading) return;
+    if(this.currentPage == 1) {
+      this.openSnackbar("Essa já é a primeira página!");
+      return;
+    }
+    this.currentPage = 1;
+    this.loadPokemons();
+  }
+
+  lastPage() {
+    if(this.isLoading) return;
+    if(this.currentPage == 51) {
+      this.openSnackbar("Essa já é a última página!");
+      return;
+    }
+    this.currentPage = 51;
+    this.loadPokemons();
+  }
+
+  openSnackbar(msg: string) {
+    const snackBarRef = this.snackBar.open(msg, undefined, {
+      duration: 5000,
+      panelClass: 'custom-snackbar'
+    });
+    setTimeout(() => {
+      snackBarRef.dismiss();
+    }, 2000);
+
   }
 }
 

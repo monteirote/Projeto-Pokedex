@@ -1,12 +1,13 @@
 <div class="center-all">
+  <div class="background" *ngIf="!isLoading; else loading">
 
-  <div class="background" *ngIf="!isLoading">
-    <button mat-icon-button (click)="nextPage()">
-      <mat-icon>first_page</mat-icon>
-    </button>
-    <button mat-icon-button (click)="previousPage()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
+    <app-page-controller
+    (firstPage)="firstPage()"
+    (pageForward)="nextPage()"
+    (pageBack)="previousPage()"
+    (lastPage)="lastPage()"
+    class="botoes-top"></app-page-controller>
+
     <div class="center">
       <ol>
         <li *ngFor="let pokemon of pokemons">
@@ -14,24 +15,19 @@
         </li>
       </ol>
     </div>
-    <button (click)="previousPage()">
-      <<
-    </button>
-    <button (click)="nextPage()">
-      >>
-    </button>
-  </div>
 
-</div>
+    <app-page-controller
+    (firstPage)="firstPage()"
+    (pageForward)="nextPage()"
+    (pageBack)="previousPage()"
+    (lastPage)="lastPage()"
+    class="botoes-bottom">
+    </app-page-controller>
 
-
-
-
-
-<div *ngIf="isLoading" class="background-loading">
-  <div class="center-on-page">
-    <div class="pokeball">
-      <div class="pokeball__button"></div>
-    </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <app-loading-pokeball></app-loading-pokeball>
+</ng-template>
+

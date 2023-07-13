@@ -15,6 +15,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { PageControllerComponent } from './pokemon/components/page-controller/page-controller.component';
+import { LoadingPokeballComponent } from './pokemon/components/loading-pokeball/loading-pokeball.component';
+import { SinglepokemonpageComponent } from './pokemon/components/singlepokemonpage/singlepokemonpage.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ErrorAvisoComponent } from './pokemon/components/error-aviso/error-aviso.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,10 @@ import { MatCardModule } from '@angular/material/card';
     CardPokemonComponent,
     CardListComponent,
     PokeToolbarComponent,
+    PageControllerComponent,
+    LoadingPokeballComponent,
+    SinglepokemonpageComponent,
+    ErrorAvisoComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +43,7 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   providers: [PokemonsService],
   bootstrap: [AppComponent]

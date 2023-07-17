@@ -22,6 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ErrorAvisoComponent } from './pokemon/components/error-aviso/error-aviso.component';
 import { SearchErrorComponent } from './pokemon/components/search-error/search-error.component';
 import { PokemonDetailedCardComponent } from './pokemon/components/pokemon-detailed-card/pokemon-detailed-card.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { PokemonDetailedCardComponent } from './pokemon/components/pokemon-detai
     MatInputModule,
     MatCardModule,
     MatSnackBarModule,
+    FormsModule,
   ],
   providers: [PokemonsService],
   bootstrap: [AppComponent]

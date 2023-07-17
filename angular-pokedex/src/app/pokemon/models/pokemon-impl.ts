@@ -5,7 +5,7 @@ export class PokemonImpl implements Pokemon {
 
   constructor(
     public name: string,
-    public id: number,
+    public id: string,
     public urlSprite: string,
     public weight: number,
     public types: PokemonTypes[],

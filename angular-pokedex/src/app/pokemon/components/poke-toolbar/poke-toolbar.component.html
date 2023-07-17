@@ -1,17 +1,17 @@
 <mat-toolbar class="personalizacao">
 
-  <button mat-icon-button class="pokeballButton">
+  <button mat-icon-button class="pokeballButton" (click)="onClickHomeButton()">
     <img src= "{{ iconUrl }}">
   </button>
 
-  <span>
+  <a href="http://localhost:4200/pokemons">
     <img class="logo" src="/assets/pkm_logo.png">
-  </span>
+  </a>
 
   <span class="example-spacer"></span>
 
   <div class="searchbar">
-    <input type="text" class="inputArea" placeholder="Busque um Pokemon!">
+    <input type="text" class="inputArea" placeholder="Busque um Pokemon!" [(ngModel)]="searchInput" (keypress)="onKeyPress($event)">
     <button class="search-button" (click)="onClick()">
       <i class="material-icons">search</i>
     </button>

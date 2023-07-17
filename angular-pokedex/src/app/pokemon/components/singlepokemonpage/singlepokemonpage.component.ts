@@ -1,5 +1,5 @@
 import { PokemonsService } from './../../services/pokemons.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from '../../models/pokemon';
 import { map } from 'rxjs';
@@ -10,7 +10,7 @@ import { PokemonImpl } from '../../models/pokemon-impl';
   templateUrl: './singlepokemonpage.component.html',
   styleUrls: ['./singlepokemonpage.component.scss'],
 })
-export class SinglepokemonpageComponent {
+export class SinglepokemonpageComponent implements OnInit {
   nomePokemon: string | null = '';
   pokemonExibido!: Pokemon;
   isLoading = true;
@@ -21,6 +21,9 @@ export class SinglepokemonpageComponent {
     private PokemonService: PokemonsService,
     private router: Router
   ) {
+
+  }
+  ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.nomePokemon = params.get('nome');
       if (!this.nomePokemon) {
@@ -50,7 +53,6 @@ export class SinglepokemonpageComponent {
             this.isLoading = false;
           }
         );
-    });
-  }
+    });  }
   }
 

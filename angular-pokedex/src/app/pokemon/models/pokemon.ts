@@ -3,7 +3,7 @@ import { PokemonTypes } from "./pokemon-types";
 export interface Pokemon {
 
   name: string;
-  id: number;
+  id: string;
   urlSprite: string;
   weight: number;
   types: PokemonTypes[];

@@ -29,7 +29,6 @@ export class CardListComponent {
           pokemon.tipos = [];
           pokemon.types.forEach((type) => {
             pokemon.tipos.push(type.type.name);
-            console.log(type.type.name)
           })
         })
         this.isLoading = false;

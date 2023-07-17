@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PokemonList } from '../../models/pokemon-list';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cardpokemon',
@@ -7,6 +8,8 @@ import { PokemonList } from '../../models/pokemon-list';
   styleUrls: ['./cardpokemon.component.scss']
 })
 export class CardPokemonComponent {
+
+  constructor(private router: Router) {}
 
   @Input() shownPokemon!: PokemonList;
 
@@ -50,6 +53,10 @@ export class CardPokemonComponent {
             return 'div-color-water';
           }
           return 'div-color-default';
+      }
+
+      onClick() {
+        this.router.navigate([`/pokemon`, this.shownPokemon.name.toLowerCase()])
       }
     }
 

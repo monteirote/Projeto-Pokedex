@@ -5,9 +5,9 @@
   </div>
 
 
-  <div class="name">
+  <button class="name" (click)="onClick()">
     {{ shownPokemon.name.replace(shownPokemon.name.charAt(0), shownPokemon.name.charAt(0).toUpperCase()) }}
-  </div>
+  </button>
 
   <div class="number">
     <p>#{{ shownPokemon.pkdxNumber}}</p>

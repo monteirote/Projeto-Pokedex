@@ -1,5 +1,27 @@
-  <div class="background center-content">
-    <div class="header"> {{ pokemonExibido.name.replace(pokemonExibido.name.charAt(0), pokemonExibido.name.charAt(0).toUpperCase()) }}</div>
-    <div class="sub-header"> #{{ pokemonExibido.id }} </div>
-  </div>
+  <mat-card class="background">
 
+    <mat-card-header class="center-content">
+       {{ pokemonExibido.name.replace(pokemonExibido.name.charAt(0), pokemonExibido.name.charAt(0).toUpperCase()) }}
+       #{{ pokemonExibido.id }}
+    </mat-card-header>
+
+    <div class="images">
+
+      <img [src]="mainImage" class="main-image">
+
+      <div class="sprites">
+
+        <div class="sprite">
+          Sprite Padrão
+          <img [src]="this.pokemonExibido.urlSprite" class="sprite-img">
+        </div>
+
+        <div class="sprite">
+          Sprite Shiny
+          <img [src]="this.spriteShinyUrl" class="sprite-img">
+        </div>
+
+      </div>
+    </div>
+
+  </mat-card>

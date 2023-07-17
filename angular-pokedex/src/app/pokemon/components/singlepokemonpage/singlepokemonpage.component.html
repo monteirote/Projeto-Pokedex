@@ -1,1 +1,14 @@
-<p>singlepokemonpage works!</p>
+<div *ngIf="!isLoading ; else loading">
+  <div class="center-all" *ngIf="!erro ; else errocomponent">
+    <app-pokemon-detailed-card [pokemonExibido]="pokemonExibido"></app-pokemon-detailed-card>
+  </div>
+</div>
+
+
+<ng-template #errocomponent>
+  <app-search-error></app-search-error>
+</ng-template>
+
+<ng-template #loading>
+  <app-loading-pokeball></app-loading-pokeball>
+</ng-template>

@@ -18,7 +18,7 @@ export class PokemonsService {
     return this.httpClient.get<Pokemon>(`${this.API}/${name}`);
   }
 
-  loadById(id: number) {
+  loadById(id: string) {
     return this.httpClient.get<Pokemon>(`${this.API}/${id}`);
   }
 

@@ -20,6 +20,8 @@ import { LoadingPokeballComponent } from './pokemon/components/loading-pokeball/
 import { SinglepokemonpageComponent } from './pokemon/components/singlepokemonpage/singlepokemonpage.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ErrorAvisoComponent } from './pokemon/components/error-aviso/error-aviso.component';
+import { SearchErrorComponent } from './pokemon/components/search-error/search-error.component';
+import { PokemonDetailedCardComponent } from './pokemon/components/pokemon-detailed-card/pokemon-detailed-card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ErrorAvisoComponent } from './pokemon/components/error-aviso/error-avis
     LoadingPokeballComponent,
     SinglepokemonpageComponent,
     ErrorAvisoComponent,
+    SearchErrorComponent,
+    PokemonDetailedCardComponent,
   ],
   imports: [
     BrowserModule,

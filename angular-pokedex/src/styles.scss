@@ -74,3 +74,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: rgb(78, 142, 234);
 }
 
+.center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-image: url('https://external-preview.redd.it/z7_wYb9-YSvt0pDJlDIu8iuK_aWdqZPg0wvrGdwNvBw.png?auto=webp&s=b40bf3d0bccf7fe4f8dc601182710ca34eac2222');
+  background-image: url('https://st2.depositphotos.com/3213441/12022/v/950/depositphotos_120226584-stock-illustration-pokemon-go-pokeball-seamless-texture.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

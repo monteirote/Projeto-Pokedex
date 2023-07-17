@@ -1,0 +1,19 @@
+.background {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: rgb(121, 132, 132);
+  width: 1050px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  font-size: 30px;
+  color: white;
+}
